@@ -9,7 +9,7 @@ public class CommentGenerator implements Generate {
 
     public static final String PATH_PHRASES = "src/main/java/ru/job4j/gc/leak/files/phrases.txt";
 
-    private final String separator = System.lineSeparator();
+    private static final String SEPARATOR = System.lineSeparator();
     private final List<Comment> comments = new ArrayList<>();
     private List<String> phrases;
     private final UserGenerator userGenerator;
@@ -38,8 +38,8 @@ public class CommentGenerator implements Generate {
         comments.clear();
         for (int i = 0; i < 50; i++) {
             String comment = String.format("%s%s%s%s%s",
-                    phrases.get(random.nextInt(phrases.size())), separator,
-                    phrases.get(random.nextInt(phrases.size())), separator,
+                    phrases.get(random.nextInt(phrases.size())), SEPARATOR,
+                    phrases.get(random.nextInt(phrases.size())), SEPARATOR,
                     phrases.get(random.nextInt(phrases.size())));
             comments.add(new Comment(comment,
                     userGenerator.randomUser()));
